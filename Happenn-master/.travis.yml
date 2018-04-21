@@ -1,0 +1,20 @@
+language: node_js
+node_js: node
+deploy:
+  provider: heroku
+  api_key: 
+    secure: 8e8011f4-18d4-4123-94fd-2a2ce4c5ac3f
+  app: frozen-sands-14716
+  on:
+    repo: khalidmadih/Happenn
+services:
+- mongodb
+after_success: npm run coverage
+env:
+- CXX=g++-4.8
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - g++-4.8
